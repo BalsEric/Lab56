@@ -32,7 +32,7 @@ void addValue(Repo &r)
 	string tip;
 	string value;
 	cout << endl;
-	cout << "Provide : number type value"<<endl;
+	cout << "Provide : number type value "<<endl;
 	cin.clear();
 	cin.ignore(INT_MAX, '\n');
 	getline (cin, value);
@@ -112,7 +112,7 @@ void setValue(Repo &r)
 	int nrApart, nrCheltuieli;
 	string tip;
 	string value;
-	cout << "Provide : number type with value"<<endl;
+	cout << "Provide : number type with value "<<endl;
 	cin.clear();
 	cin.ignore(INT_MAX, '\n');
 	getline(cin, value);
@@ -188,7 +188,7 @@ void ValueModifier(Repo &r)
 	cin >> command;
 	if (command == 1)
 	{
-		cout << "Provide number" << endl;
+		cout << "Provide number " << endl;
 		cin >> nr;
 		r.getApart(nr)->setALL();
 		cout << "Successfully" << endl;
@@ -197,7 +197,7 @@ void ValueModifier(Repo &r)
 		if (command == 2)
 		{
 
-			cout << "Provide number x to y" << endl;
+			cout << "Provide number x to y " << endl;
 			cout << "From :" << endl;
 			int x, y;
 			cin >> x;
@@ -248,7 +248,7 @@ void showCostsIndiv(Repo r)
 
 void showCostsHigher(Repo r, int value)
 {
-	for (int i = 0; i < r.getSize(); i++)
+	for (int i = 0; i <= r.getSize(); i++)
 	{
 		std::cout << "Apart. " << i << " has:" << std::endl;
 		r.getApart(i)->showHiger(value);
@@ -260,9 +260,14 @@ void showCostsEqual(Repo r, int value)
 {
 	for (int i = 0; i < r.getSize(); i++)
 	{
-		std::cout << "Apart. " << i << " has:" << std::endl;
-		r.getApart(i)->showEqual(value);
-		std::cout << std::endl;
+		if (r.getApart(i)->checkEqual(value))
+		{
+			std::cout << "Apart. " << i << " has:" << std::endl;
+			r.getApart(i)->showEqual(value);
+			std::cout << std::endl;
+		}
+		
+		
 	}
 }
 
@@ -274,7 +279,6 @@ void sumType(Repo r, string tip)
 		for (int i = 0; i < r.getSize(); i++)
 		{
 			sum += r.getApart(i)->getGaz();
-			std::cout << std::endl;
 		}
 		std:: cout<< "The sum is :" << sum << std::endl;
 	}
@@ -284,7 +288,7 @@ void sumType(Repo r, string tip)
 			for (int i = 0; i < r.getSize(); i++)
 			{
 				sum += r.getApart(i)->getApa();
-				std::cout << std::endl;
+				
 			}
 			std:: cout<< "The sum is :" << sum << std::endl;
 		}
@@ -294,7 +298,7 @@ void sumType(Repo r, string tip)
 				for (int i = 0; i < r.getSize(); i++)
 				{
 					sum += r.getApart(i)->getCaldura();
-					std::cout << std::endl;
+					
 				}
 				std:: cout<< "The sum is :" << sum << std::endl;
 			}
@@ -304,7 +308,7 @@ void sumType(Repo r, string tip)
 					for (int i = 0; i < r.getSize(); i++)
 					{
 						sum += r.getApart(i)->getElect();
-						std::cout << std::endl;
+					
 					}
 					std::cout << "The sum is :" << sum << std::endl;
 				}
@@ -320,14 +324,17 @@ void maxim(int x[4])
 	{
 		cout << "The most cost is apa: " << x[0] << endl;
 	}
+	else
 	if ((x[1] >= x[0] && x[1] >= x[2] && x[1] >= x[3]))
 	{
 		cout << "The most cost is caldura: " << x[1] << endl;
 	}
+	else
 	if ((x[2] >= x[1] && x[2] >= x[0] && x[2] >= x[3]))
 	{
 		cout << "The most cost is electricitate: " << x[2] << endl;
 	}
+	else
 	if ((x[3] >= x[1] && x[3] >= x[2] && x[3] >= x[0]))
 	{
 		cout << "The most cost is gas: " << x[3] << endl;
@@ -336,7 +343,7 @@ void maxim(int x[4])
 void showTheMostCost(Repo r)
 {
 	int nr;
-	cout << "Please provide the Apart. Nr." << endl;
+	cout << "Provide number " << endl;
 	cin >> nr;
 	int x[4] = { r.getApart(nr)->getApa(),r.getApart(nr)->getCaldura(),r.getApart(nr)->getElect(),r.getApart(nr)->getGaz() };
 	maxim(x);

@@ -40,7 +40,7 @@ public:
 	void setType(std::string s);
 
 //external
-	
+	bool checkEqual(int value);
 	void showAll();
 	void showHiger(int value);
 	void showEqual(int value);

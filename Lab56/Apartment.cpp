@@ -76,6 +76,34 @@ void Apartment::showHiger(int value)
 
 }
 
+bool Apartment::checkEqual(int value)
+{
+	bool ok = false;
+	if (getGaz() == value)
+	{
+		ok = true;
+	}
+	if (getApa() == value)
+	{
+		ok = true;
+
+	}
+
+	if (getCaldura() == value)
+	{
+		ok = true;
+
+	}
+
+	if (getElect() == value)
+	{
+		ok = true;
+
+	}
+	if (ok)
+		return true;
+	return false;
+}
 void Apartment::showEqual(int value)
 {
 	if (getGaz() == value)
@@ -85,19 +113,21 @@ void Apartment::showEqual(int value)
 
 	if (getApa()== value)
 	{
+
 		std::cout << "Apa: " << getApa() << std::endl;
 	}
 
 	if (getCaldura() == value)
 	{
+		
 		std::cout << "Caldura: " << getCaldura() << std::endl;
 	}
 
 	if (getElect() == value)
 	{
+		
 		std::cout << "Electricitate: " << getElect() << std::endl;
 	}
-
 }
 
 /*

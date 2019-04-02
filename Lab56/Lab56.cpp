@@ -11,10 +11,13 @@
 using namespace std;
 int main()
 {
+	string type2;
 	teste();
 	UI ui = UI();
 	Logics logics = ui.getLogics();
 	Repo r = logics.getRepo();
+	ui.Setup(r);
+	ui.SetupRandom(r);
 	int nr;
 	while (true)
 	{
@@ -29,11 +32,40 @@ int main()
 			break;
 		case 3:
 			ValueModifier(r);
-		case 10:
+		case 4:
+			for(int i=0;i<=r.getSize();i++)
+			{
+				showCosts(r,i);
+				cout<<endl;
+			}
+			break;
+		case 5:
 			int v;
 			cout << "Provide number";
 			cin >> v;
 			showCosts(r,v);
+			break;
+		case 6:
+			cout<<"Provide value";
+			int value;
+			cin>>value;
+			showCostsHigher(r,value);
+			cout<<endl;
+			break;
+		case 7:
+			cout<<"Provide value";
+			int value1;
+			cin>>value1;
+			showCostsEqual(r,value1);
+			break;
+		case 8:
+			cout<<"Provide the type";
+			cin>>type2;
+			sumType(r,type2);
+			break;
+		case 9:
+			showTheMostCost(r);
+			break;
 		default:
 			break;
 		}

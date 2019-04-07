@@ -28,6 +28,7 @@ void Logics::addApart()
 
 void addValue(Repo &r)
 {
+	r.CopyFirst();
 	int nrApart=0, nrCheltuieli=0;
 	string tip;
 	string value;
@@ -36,7 +37,6 @@ void addValue(Repo &r)
 	cin.clear();
 	cin.ignore(INT_MAX, '\n');
 	getline (cin, value);
-	cout << value << endl;
 	nrApart = (value[0]-'0');
 	if (isdigit(value[1]))
 	{
@@ -72,9 +72,6 @@ void addValue(Repo &r)
 			i++;
 		}
 	}
-	cout << "nr apart " << nrApart << endl;
-	cout << "tip " << tip << endl;
-	cout << "value " << nrCheltuieli << endl;
 	if (tip == "gaz")
 	{
 		int var = r.getApart(nrApart)->getGaz() + nrCheltuieli;
@@ -109,6 +106,7 @@ void addValue(Repo &r)
 
 void setValue(Repo &r)
 {
+	r.CopyFirst();
 	int nrApart, nrCheltuieli;
 	string tip;
 	string value;
@@ -181,6 +179,7 @@ void setValue(Repo &r)
 
 void ValueModifier(Repo &r)
 {
+	r.CopyFirst();
 	string value;
 	int command,nr;
 	cout << "---Modify MENU---" << endl;
@@ -250,9 +249,12 @@ void showCostsHigher(Repo r, int value)
 {
 	for (int i = 0; i <= r.getSize(); i++)
 	{
-		std::cout << "Apart. " << i << " has:" << std::endl;
-		r.getApart(i)->showHiger(value);
-		std::cout << std::endl;
+		if (r.getApart(i)->checkEqual2(value))
+		{
+			std::cout << "Apart. " << i << " has:" << std::endl;
+			r.getApart(i)->showHiger(value);
+			std::cout << std::endl;
+		}
 	}
 }
 

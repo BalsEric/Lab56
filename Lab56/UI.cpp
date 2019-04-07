@@ -88,6 +88,9 @@ int UI::Menu()
 	cout << "8. Show Sum type" << endl;
 	cout << "9. Show the most cost" << endl;
 	cout << "10. Sort type" << endl;
+	cout << "11. Filter type" << endl;
+	cout << "12. Filter value" << endl;
+	cout << "13. UNDO" << endl;
 
 	cin >> nr;
 	return nr;

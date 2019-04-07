@@ -104,6 +104,35 @@ bool Apartment::checkEqual(int value)
 		return true;
 	return false;
 }
+
+bool Apartment::checkEqual2(int value)
+{
+	bool ok = false;
+	if (getGaz() > value)
+	{
+		ok = true;
+	}
+	if (getApa()> value)
+	{
+		ok = true;
+
+	}
+
+	if (getCaldura()> value)
+	{
+		ok = true;
+
+	}
+
+	if (getElect()>value)
+	{
+		ok = true;
+
+	}
+	if (ok)
+		return true;
+	return false;
+}
 void Apartment::showEqual(int value)
 {
 	if (getGaz() == value)

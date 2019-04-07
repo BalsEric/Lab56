@@ -66,6 +66,8 @@ int main()
 		case 9:
 			showTheMostCost(r);
 			break;
+		case 13:
+			r.Undo();
 		default:
 			break;
 		}

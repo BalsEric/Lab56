@@ -11,7 +11,7 @@ public:
 	int v[100] = { 0 };
 	Logics();
 	void addApart();
-	Repo getRepo() { return this->repo; }
+	Repo getRepo() { return this->repo;}
 	~Logics();
 };
 

@@ -41,6 +41,7 @@ public:
 
 //external
 	bool checkEqual(int value);
+	bool checkEqual2(int value);
 	void showAll();
 	void showHiger(int value);
 	void showEqual(int value);

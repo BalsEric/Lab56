@@ -46,19 +46,20 @@ void Apartment::setType(std::string s)
 
 void Apartment::showAll()
 {
-	if(gaz!=NULL)
+	std::cout << "Apart. " << nrApart <<":"<<std::endl;
+	if(gaz!=-1)
 		std::cout << "Gaz: " << getGaz()<<std::endl;
-	if (apa != NULL)
+	if (apa != -1)
 		std::cout << "Apa: " << getApa() << std::endl;
-	if (caldura!= NULL)
+	if (caldura!= -1)
 		std::cout << "Caldura: " << getCaldura() << std::endl;
-	if (electricitate != NULL)
+	if (electricitate != -1)
 		std::cout << "Electricitate: " << getElect() << std::endl;
 }
 
 void Apartment::showHiger(int value)
-{
-	if (getGaz() > value)
+{ 
+	if (getGaz() > value )
 	{
 		std::cout << "Gaz: " << getGaz() << std::endl;
 	}
@@ -137,8 +138,11 @@ bool Apartment::checkEqual2(int value)
 		return true;
 	return false;
 }
+
+
 void Apartment::showEqual(int value)
 {
+	std::cout << "Apart. " << nrApart << std::endl;
 	if (getGaz() == value)
 	{
 		std::cout << "Gaz: " << getGaz() << std::endl;

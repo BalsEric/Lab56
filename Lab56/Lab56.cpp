@@ -68,6 +68,7 @@ int main()
 		case 9:
 			showTheMostCost(r);
 			break;
+			
 		case 10:
 			cout << "Provide type" << endl;
 			cin >> value3;
@@ -83,6 +84,7 @@ int main()
 			cin >> less;
 			filterLess(r, less);
 			break;
+			
 		case 13:
 			r.Undo();
 		default:

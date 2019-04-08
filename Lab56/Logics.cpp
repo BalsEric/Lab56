@@ -353,7 +353,7 @@ void showTheMostCost(Repo r)
 
 void sortType(Repo r, string type)
 {
-	Apartment* copie[100]; // MAYBE BUG
+	Apartment* copie[10]; // MAYBE BUG
 	for (int i = 0; i < r.getSize(); i++)
 		copie[i] = r.getApart(i);
 	if (type == "gaz")
@@ -440,7 +440,7 @@ void sortType(Repo r, string type)
 							}
 						}
 					} while (ok == 1);
-					for (int k = 0; k <= r.getSize(); k++)
+					for (int k = 0; k < r.getSize(); k++)
 						cout << "Apart. " << copie[k]->getnrApart() << " has " << copie[k]->getElect() << endl;
 				}
 	//delete[] copie;
@@ -450,14 +450,15 @@ void sortType(Repo r, string type)
 
 void filterType(Repo& r, string type)
 {
+	r.CopyFirst();
 	if (type == "gaz")
 	{
 		for (int i = 0; i <= r.getSize(); i++)
 		{
 
-			r.getApart(i)->setApa(NULL);
-			r.getApart(i)->setCaldura(NULL);
-			r.getApart(i)->setElect(NULL);
+			r.getApart(i)->setApa(-1);
+			r.getApart(i)->setCaldura(-1);
+			r.getApart(i)->setElect(-1);
 		}
 	}
 	else
@@ -466,9 +467,9 @@ void filterType(Repo& r, string type)
 			for (int i = 0; i <= r.getSize(); i++)
 			{
 
-				r.getApart(i)->setGaz(NULL);
-				r.getApart(i)->setCaldura(NULL);
-				r.getApart(i)->setElect(NULL);
+				r.getApart(i)->setGaz(-1);
+				r.getApart(i)->setCaldura(-1);
+				r.getApart(i)->setElect(-1);
 			}
 		}
 		else
@@ -477,9 +478,9 @@ void filterType(Repo& r, string type)
 				for (int i = 0; i <= r.getSize(); i++)
 				{
 
-					r.getApart(i)->setApa(NULL);
-					r.getApart(i)->setGaz(NULL);
-					r.getApart(i)->setElect(NULL);
+					r.getApart(i)->setApa(-1);
+					r.getApart(i)->setGaz(-1);
+					r.getApart(i)->setElect(-1);
 				}
 			}
 			else
@@ -488,9 +489,9 @@ void filterType(Repo& r, string type)
 					for (int i = 0; i <= r.getSize(); i++)
 					{
 
-						r.getApart(i)->setApa(NULL);
-						r.getApart(i)->setCaldura(NULL);
-						r.getApart(i)->setGaz(NULL);
+						r.getApart(i)->setApa(-1);
+						r.getApart(i)->setCaldura(-1);
+						r.getApart(i)->setGaz(-1);
 					}
 				}
 	cout << "Successfully filtered!" << endl;
@@ -498,16 +499,17 @@ void filterType(Repo& r, string type)
 
 void filterLess(Repo& r, int value)
 {
+	r.CopyFirst();
 	for (int i = 0; i <= r.getSize(); i++)
 	{
-		if (r.getApart(i)->getApa() < value)
-			r.getApart(i)->setApa(NULL);
-		if (r.getApart(i)->getCaldura() < value)
-			r.getApart(i)->setCaldura(NULL);
-		if (r.getApart(i)->getElect() < value)
-			r.getApart(i)->setElect(NULL);
-		if (r.getApart(i)->getGaz() < value)
-			r.getApart(i)->setGaz(NULL);
+		if (r.getApart(i)->getApa() > value)
+			r.getApart(i)->setApa(-1);
+		if (r.getApart(i)->getCaldura() > value)
+			r.getApart(i)->setCaldura(-1);
+		if (r.getApart(i)->getElect() > value)
+			r.getApart(i)->setElect(-1);
+		if (r.getApart(i)->getGaz() > value)
+			r.getApart(i)->setGaz(-1);
 	}
 	cout << "Filtered successfully" << endl;
 }

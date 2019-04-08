@@ -21,7 +21,13 @@ public:
 		electricitate = 0;
 		caldura = 0;
 	};
-	//operator=(Apartment a);
+	bool compare(Apartment& f) {
+		return ((this->gaz == f.gaz) && (this->caldura == f.caldura) && (this->electricitate == f.electricitate) && (this->apa == f.apa));
+	}
+	bool operator>(const Apartment& s) {
+		return (gaz > s.gaz && caldura > s.caldura && electricitate > s.electricitate && apa > s.apa);
+	}
+	Apartment& operator=(const Apartment& a);
 	~Apartment();
 //getteri
 public:

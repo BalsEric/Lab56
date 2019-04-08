@@ -46,10 +46,14 @@ void Apartment::setType(std::string s)
 
 void Apartment::showAll()
 {
-	std::cout << "Gaz: " << getGaz()<<std::endl;
-	std::cout << "Apa: " << getApa() << std::endl;
-	std::cout << "Caldura: " << getCaldura() << std::endl;
-	std::cout << "Electricitate: " << getElect() << std::endl;
+	if(gaz!=NULL)
+		std::cout << "Gaz: " << getGaz()<<std::endl;
+	if (apa != NULL)
+		std::cout << "Apa: " << getApa() << std::endl;
+	if (caldura!= NULL)
+		std::cout << "Caldura: " << getCaldura() << std::endl;
+	if (electricitate != NULL)
+		std::cout << "Electricitate: " << getElect() << std::endl;
 }
 
 void Apartment::showHiger(int value)
@@ -159,13 +163,16 @@ void Apartment::showEqual(int value)
 	}
 }
 
-/*
-Apartment Apartment::operator=(Apartment a)
+
+Apartment& Apartment::operator=(const Apartment& a)
 {
-	this->apa = a.apa;
-	this->caldura = a.caldura;
-	this->electricitate = a.electricitate;
-	this->gaz = a.gaz;
-	this->nrApart = a.nrApart;
+	if (this != &a)
+	{
+		this->apa = a.apa;
+		this->caldura = a.caldura;
+		this->electricitate = a.electricitate;
+		this->gaz = a.gaz;
+		this->nrApart = a.nrApart;
+	}
+	return *this;
 }
-*/

@@ -14,7 +14,7 @@ public:
 	void addApart(Apartment apart);
 	Apartment* getApart(int pos);
 	int getSize() { return this->size; }
-	void deleteApart(int pos) { delete &this->x[pos]; }
+	void deleteApart(int pos) { delete& this->x[pos]; }
 	~Repo();
 };
 

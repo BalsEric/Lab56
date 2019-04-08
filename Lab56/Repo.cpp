@@ -41,5 +41,6 @@ void Repo::Undo()
 		Apartment* a = &this->a[i];
 		x[i] = *a;
 	}
+	std::cout << "Successfully restored !" << std::endl;
 }
 

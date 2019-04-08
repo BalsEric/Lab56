@@ -350,7 +350,7 @@ void showTheMostCost(Repo r)
 	int x[4] = { r.getApart(nr)->getApa(),r.getApart(nr)->getCaldura(),r.getApart(nr)->getElect(),r.getApart(nr)->getGaz() };
 	maxim(x);
 }
-/*
+
 void sortType(Repo r, string type)
 {
 	Apartment* copie[100]; // MAYBE BUG
@@ -359,7 +359,7 @@ void sortType(Repo r, string type)
 	if (type == "gaz")
 	{
 		int ok = 0;
-		Apartment aux;
+		Apartment* aux;
 		do
 		{
 			ok = 0;
@@ -381,7 +381,7 @@ void sortType(Repo r, string type)
 		if(type=="apa")
 		{
 			int ok = 0;
-			Apartment aux;
+			Apartment* aux;
 			do
 			{
 				ok = 0;
@@ -403,7 +403,7 @@ void sortType(Repo r, string type)
 			if(type=="caldura")
 			{
 				int ok = 0;
-				Apartment aux;
+				Apartment* aux;
 				do
 				{
 					ok = 0;
@@ -425,7 +425,7 @@ void sortType(Repo r, string type)
 				if(type=="electricitate")
 				{
 					int ok = 0;
-					Apartment aux;
+					Apartment* aux;
 					do
 					{
 						ok = 0;
@@ -440,16 +440,74 @@ void sortType(Repo r, string type)
 							}
 						}
 					} while (ok == 1);
-					for (int k = 0; k < r.getSize(); k++)
+					for (int k = 0; k <= r.getSize(); k++)
 						cout << "Apart. " << copie[k]->getnrApart() << " has " << copie[k]->getElect() << endl;
 				}
+	//delete[] copie;
 		
 }
 
-*/
 
+void filterType(Repo& r, string type)
+{
+	if (type == "gaz")
+	{
+		for (int i = 0; i <= r.getSize(); i++)
+		{
 
+			r.getApart(i)->setApa(NULL);
+			r.getApart(i)->setCaldura(NULL);
+			r.getApart(i)->setElect(NULL);
+		}
+	}
+	else
+		if (type == "apa")
+		{
+			for (int i = 0; i <= r.getSize(); i++)
+			{
 
+				r.getApart(i)->setGaz(NULL);
+				r.getApart(i)->setCaldura(NULL);
+				r.getApart(i)->setElect(NULL);
+			}
+		}
+		else
+			if (type == "caldura")
+			{
+				for (int i = 0; i <= r.getSize(); i++)
+				{
 
-// UNDO CU COPIE 
+					r.getApart(i)->setApa(NULL);
+					r.getApart(i)->setGaz(NULL);
+					r.getApart(i)->setElect(NULL);
+				}
+			}
+			else
+				if (type == "electricitate")
+				{
+					for (int i = 0; i <= r.getSize(); i++)
+					{
 
+						r.getApart(i)->setApa(NULL);
+						r.getApart(i)->setCaldura(NULL);
+						r.getApart(i)->setGaz(NULL);
+					}
+				}
+	cout << "Successfully filtered!" << endl;
+}
+
+void filterLess(Repo& r, int value)
+{
+	for (int i = 0; i <= r.getSize(); i++)
+	{
+		if (r.getApart(i)->getApa() < value)
+			r.getApart(i)->setApa(NULL);
+		if (r.getApart(i)->getCaldura() < value)
+			r.getApart(i)->setCaldura(NULL);
+		if (r.getApart(i)->getElect() < value)
+			r.getApart(i)->setElect(NULL);
+		if (r.getApart(i)->getGaz() < value)
+			r.getApart(i)->setGaz(NULL);
+	}
+	cout << "Filtered successfully" << endl;
+}

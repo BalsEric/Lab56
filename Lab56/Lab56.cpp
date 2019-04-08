@@ -12,13 +12,15 @@ using namespace std;
 int main()
 {
 	string type2;
+	string value3;
+	string value4;
 	teste();
 	UI ui = UI();
 	Logics logics = ui.getLogics();
 	Repo r = logics.getRepo();
 	ui.Setup(r);
 	ui.SetupRandom(r);
-	int nr;
+	int nr,less;
 	while (true)
 	{
 		nr = ui.Menu();
@@ -65,6 +67,21 @@ int main()
 			break;
 		case 9:
 			showTheMostCost(r);
+			break;
+		case 10:
+			cout << "Provide type" << endl;
+			cin >> value3;
+			sortType(r, value3);
+			break;
+		case 11:
+			cout << "Provide type" << endl;
+			cin >> value4;
+			filterType(r, value4);
+			break;
+		case 12:
+			cout << "Provide value" << endl;
+			cin >> less;
+			filterLess(r, less);
 			break;
 		case 13:
 			r.Undo();

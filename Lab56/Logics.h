@@ -24,4 +24,6 @@ void showCostsHigher(Repo r,int value); // Menu
 void showCostsEqual(Repo r, int value); // menu
 void sumType(Repo r, std::string type); // menu
 void showTheMostCost(Repo r); // menu
-//void sortType(Repo r, std::string type);
+void sortType(Repo r, std::string type);
+void filterType(Repo& r, std::string type);
+void filterLess(Repo& r, int value);

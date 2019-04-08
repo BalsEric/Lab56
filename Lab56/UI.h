@@ -8,9 +8,10 @@ private:
 public:
 	UI();
 	~UI();
-	int Menu();
+	void Menu();
 	void SetupRandom(Repo& r);
 	void Setup(Repo &r);
+	void app();
 	Logics getLogics() { return l; }
 };
 

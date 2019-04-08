@@ -1,11 +1,102 @@
 #include "pch.h"
 #include "Apartment.h"
 #include "UI.h"
+#include "teste.h"
 #include<random>
 using namespace std;
 
 UI::UI()
 {
+}
+void UI::app()
+{
+	string type2;
+	string value3;
+	string value4;
+	teste();
+	Logics logics =getLogics();
+	Repo r = logics.getRepo();
+	Setup(r);
+	SetupRandom(r);
+	int nr, less;
+	while (true)
+	{
+		cout << "Press 0 for MENU" << endl;;
+		cin >> nr;
+		switch (nr)
+		{
+		case 0:
+			cout << endl;
+			cout << "Values : 0 -> 100000" << endl;
+			cout << "Types : apa | caldura | gaz | electricitate" << endl;
+			Menu();
+			break;
+		case 1:
+			logics.addApart(); // add apartment
+			break;
+		case 2:
+			addValue(r);
+			break;
+		case 3:
+			ValueModifier(r);
+		case 4:
+			for (int i = 0; i <= r.getSize(); i++)
+			{
+				showCosts(r, i);
+				cout << endl;
+			}
+			break;
+		case 5:
+			int v;
+			cout << "Provide number : ";
+			cin >> v;
+			showCosts(r, v);
+			break;
+		case 6:
+			cout << "Provide value : ";
+			int value;
+			cin >> value;
+			showCostsHigher(r, value);
+			cout << endl;
+			break;
+		case 7:
+			cout << "Provide value : ";
+			int value1;
+			cin >> value1;
+			showCostsEqual(r, value1);
+			break;
+		case 8:
+			cout << "Provide the type : ";
+			cin >> type2;
+			sumType(r, type2);
+			break;
+		case 9:
+			showTheMostCost(r);
+			break;
+
+		case 10:
+			cout << "Provide type : " << endl;
+			cin >> value3;
+			sortType(r, value3);
+			break;
+		case 11:
+			cout << "Provide type : " << endl;
+			cin >> value4;
+			filterType(r, value4);
+			break;
+		case 12:
+			cout << "Provide value : " << endl;
+			cin >> less;
+			filterLess(r, less);
+			break;
+
+		case 13:
+			r.Undo();
+		default:
+			break;
+		}
+
+	}
 }
 void UI::SetupRandom(Repo& r)
 {
@@ -68,15 +159,15 @@ void UI::Setup(Repo &r)
 	r.addApart(a19);
 	r.addApart(a20);
 	*/
+	cout << endl << endl << endl;
 }
 
 UI::~UI()
 {
 }
 
-int UI::Menu()
+void UI::Menu()
 {
-	int nr;
 	cout << "......MENU......" << endl;
 	cout << "1. Create Apartment" << endl;
 	cout << "2. Add Value" << endl;
@@ -92,6 +183,4 @@ int UI::Menu()
 	cout << "12. Filter value" << endl;
 	cout << "13. UNDO" << endl;
 
-	cin >> nr;
-	return nr;
 }

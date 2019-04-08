@@ -142,7 +142,7 @@ bool Apartment::checkEqual2(int value)
 
 void Apartment::showEqual(int value)
 {
-	std::cout << "Apart. " << nrApart << std::endl;
+	
 	if (getGaz() == value)
 	{
 		std::cout << "Gaz: " << getGaz() << std::endl;

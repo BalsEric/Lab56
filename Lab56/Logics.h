@@ -15,15 +15,15 @@ public:
 	~Logics();
 };
 
-void addValue(Repo &r);  // Menu
+void addValue(Repo &r);  
 void setValue(Repo &r);
-void ValueModifier(Repo &r); // Menu - mini menu
-void showCosts(Repo r,int value);  // Menu
-void showCostsIndiv(Repo r); //Menu
-void showCostsHigher(Repo r,int value); // Menu
-void showCostsEqual(Repo r, int value); // menu
-void sumType(Repo r, std::string type); // menu
-void showTheMostCost(Repo r); // menu
+void ValueModifier(Repo &r);
+void showCosts(Repo r,int value);  
+void showCostsIndiv(Repo r);
+void showCostsHigher(Repo r,int value); 
+void showCostsEqual(Repo r, int value);
+void sumType(Repo r, std::string type);
+void showTheMostCost(Repo r);
 void sortType(Repo r, std::string type);
 void filterType(Repo& r, std::string type);
 void filterLess(Repo& r, int value);

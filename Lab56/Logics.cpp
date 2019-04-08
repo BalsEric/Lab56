@@ -82,7 +82,6 @@ void addValue(Repo &r)
 		{
 			int var = r.getApart(nrApart)->getApa() + nrCheltuieli;
 			r.getApart(nrApart)->setApa(var);
-			cout << r.getApart(nrApart)->getApa();
 		}
 		else
 			if (tip == "caldura")
@@ -197,10 +196,10 @@ void ValueModifier(Repo &r)
 		{
 
 			cout << "Provide number x to y " << endl;
-			cout << "From :" << endl;
+			cout << "From : ";
 			int x, y;
 			cin >> x;
-			cout << "To :" << endl;
+			cout << "To : ";
 			cin >> y;
 			for (int i = x; i <= y; i++)
 			{
@@ -211,7 +210,7 @@ void ValueModifier(Repo &r)
 		else
 			if (command == 3)
 			{
-				cout << "Provide the type :" << endl;
+				cout << "Provide the type : " << endl;
 				string type;
 				cin >> type;
 				for (int i = 0; i < r.getSize(); i++)
@@ -239,7 +238,7 @@ void showCosts(Repo r,int value)
 void showCostsIndiv(Repo r)
 {
 	int nr;
-	cout << "Please provide Apart. Nr." << endl;
+	cout << "Please provide Apart. Nr. " << endl;
 	cin >> nr;
 	r.getApart(nr)->showAll();
 	std::cout << endl;
@@ -282,7 +281,7 @@ void sumType(Repo r, string tip)
 		{
 			sum += r.getApart(i)->getGaz();
 		}
-		std:: cout<< "The sum is :" << sum << std::endl;
+		std:: cout<< "The sum is : " << sum << std::endl;
 	}
 	else
 		if (tip == "apa")
@@ -292,7 +291,7 @@ void sumType(Repo r, string tip)
 				sum += r.getApart(i)->getApa();
 				
 			}
-			std:: cout<< "The sum is :" << sum << std::endl;
+			std:: cout<< "The sum is : " << sum << std::endl;
 		}
 		else
 			if (tip == "caldura")
@@ -302,7 +301,7 @@ void sumType(Repo r, string tip)
 					sum += r.getApart(i)->getCaldura();
 					
 				}
-				std:: cout<< "The sum is :" << sum << std::endl;
+				std:: cout<< "The sum is : " << sum << std::endl;
 			}
 			else
 				if (tip == "electricitate")
@@ -312,7 +311,7 @@ void sumType(Repo r, string tip)
 						sum += r.getApart(i)->getElect();
 					
 					}
-					std::cout << "The sum is :" << sum << std::endl;
+					std::cout << "The sum is : " << sum << std::endl;
 				}
 				else
 				{
@@ -453,7 +452,7 @@ void filterType(Repo& r, string type)
 	r.CopyFirst();
 	if (type == "gaz")
 	{
-		for (int i = 0; i <= r.getSize(); i++)
+		for (int i = 0; i < r.getSize(); i++)
 		{
 
 			r.getApart(i)->setApa(-1);
@@ -464,7 +463,7 @@ void filterType(Repo& r, string type)
 	else
 		if (type == "apa")
 		{
-			for (int i = 0; i <= r.getSize(); i++)
+			for (int i = 0; i < r.getSize(); i++)
 			{
 
 				r.getApart(i)->setGaz(-1);
@@ -475,7 +474,7 @@ void filterType(Repo& r, string type)
 		else
 			if (type == "caldura")
 			{
-				for (int i = 0; i <= r.getSize(); i++)
+				for (int i = 0; i < r.getSize(); i++)
 				{
 
 					r.getApart(i)->setApa(-1);
@@ -486,7 +485,7 @@ void filterType(Repo& r, string type)
 			else
 				if (type == "electricitate")
 				{
-					for (int i = 0; i <= r.getSize(); i++)
+					for (int i = 0; i < r.getSize(); i++)
 					{
 
 						r.getApart(i)->setApa(-1);
@@ -500,7 +499,7 @@ void filterType(Repo& r, string type)
 void filterLess(Repo& r, int value)
 {
 	r.CopyFirst();
-	for (int i = 0; i <= r.getSize(); i++)
+	for (int i = 0; i < r.getSize(); i++)
 	{
 		if (r.getApart(i)->getApa() > value)
 			r.getApart(i)->setApa(-1);

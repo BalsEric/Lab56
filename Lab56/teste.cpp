@@ -43,6 +43,7 @@ void teste()
 	cout << "Object SetterALL working!" << endl;
 
 
+
 	cout << endl;
 	cout << "Tests successfully finished" << endl;
 	cout << endl;
